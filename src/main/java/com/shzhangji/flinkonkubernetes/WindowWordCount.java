@@ -10,9 +10,10 @@ import org.apache.flink.util.Collector;
 public class WindowWordCount {
   public static void main(String[] args) throws Exception {
     StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+    env.enableCheckpointing(10_000);
 
     DataStream<Tuple2<String, Integer>> dataStream = env
-        .socketTextStream("localhost", 9999)
+        .socketTextStream("192.168.99.1", 9999)
         .flatMap(new Splitter())
         .keyBy(0)
         .timeWindow(Time.seconds(5))
