@@ -19,7 +19,13 @@ spec:
                "-Dparallelism.default=1",
                "-Dblob.server.port=6124",
                "-Dqueryable-state.server.ports=6125",
-               "-Dstate.savepoints.dir=hdfs://192.168.99.1:9000/flink/savepoints/",
+               "-Dhigh-availability=zookeeper",
+               "-Dhigh-availability.zookeeper.quorum=192.168.99.1:2181",
+               "-Dhigh-availability.zookeeper.path.root=/flink",
+               "-Dhigh-availability.cluster-id=/${JOB}",
+               "-Dhigh-availability.storageDir=hdfs://192.168.99.1:9000/flink/recovery",
+               "-Dhigh-availability.jobmanager.port=6123",
+               "--fromSavepoint", "${SAVEPOINT}",
                ]
         ports:
         - containerPort: 6123
