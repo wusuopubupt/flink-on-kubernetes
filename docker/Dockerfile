@@ -1,4 +1,4 @@
-FROM flink:1.8.1-scala_2.12
+FROM flink:1.9.2-scala_2.12
 
 ARG hadoop_jar
 ARG job_jar
