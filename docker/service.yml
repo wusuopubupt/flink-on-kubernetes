@@ -6,7 +6,7 @@ spec:
   selector:
     app: flink
     instance: ${JOB}-jobmanager
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: rpc
     port: 6123

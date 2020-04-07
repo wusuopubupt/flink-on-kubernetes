@@ -19,7 +19,7 @@ spec:
                "-Dparallelism.default=1",
                "-Dblob.server.port=6124",
                "-Dqueryable-state.server.ports=6125",
-               "-Dstate.savepoints.dir=hdfs://192.168.99.1:9000/flink/savepoints/",
+               #"-Dstate.savepoints.dir=hdfs://192.168.99.1:9000/flink/savepoints/",
                ]
         ports:
         - containerPort: 6123
